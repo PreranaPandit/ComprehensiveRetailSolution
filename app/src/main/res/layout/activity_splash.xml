@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bfour"
+    tools:context=".activity.SplashActivity">
+
+    <LinearLayout
+
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/load_image"
+            android:layout_weight="0"
+            android:layout_height="200dp"
+            android:layout_width="200dp"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:layout_marginTop="0dp"
+            android:textColor="#141A5A"
+            android:textSize="19dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:text="Comprehensive Retail Solution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_marginTop="135dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="0dp"
+        android:adjustViewBounds="true"
+        android:id="@+id/splash_blood"
+        android:src="@drawable/slider"
+        />
+
+
+    <TextView
+        android:textSize="13sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:textStyle="bold|normal"
+        android:textColor="#01052C"
+        android:text="\u2605 \u2605 \u1F600 Customer Satisfaction == Customer Loyalty "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textSize="13sp"
+        android:textColor="#00041F"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="\u2713 Version 1.0.9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+</LinearLayout>
