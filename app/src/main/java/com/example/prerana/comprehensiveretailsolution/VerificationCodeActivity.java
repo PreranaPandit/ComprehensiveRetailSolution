@@ -24,6 +24,10 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Created by Prerana Pandit on 08/07/2020.
+ */
+
 public class VerificationCodeActivity extends AppCompatActivity {
 
     private String verificationId;
