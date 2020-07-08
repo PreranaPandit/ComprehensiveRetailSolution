@@ -90,15 +90,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="20dp"
-                android:text="VERIFY"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="VERIFY CODE"
                 android:textColor="@color/colorPrimaryDark" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonResend"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
-                android:background="#BE0303"
+                android:background="#EC2E2E"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="20dp"

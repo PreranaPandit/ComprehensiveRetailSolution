@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,15 +20,15 @@
 
         <ImageView
             android:id="@+id/load_image"
+            android:layout_width="267dp"
+            android:layout_height="250dp"
             android:layout_weight="0"
-            android:layout_height="200dp"
-            android:layout_width="200dp"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" />
 
-        <TextView
-            android:layout_marginTop="0dp"
-            android:textColor="#141A5A"
-            android:textSize="19dp"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="2dp"
+            android:textColor="#111761"
+            android:textSize="20dp"
             android:layout_gravity="center"
             android:textStyle="bold"
             android:text="Comprehensive Retail Solution"
@@ -37,29 +38,40 @@
 
 
     <ImageView
-        android:layout_marginTop="135dp"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_marginTop="125dp"
+        android:layout_width="210dp"
+        android:layout_height="200dp"
         android:layout_alignParentBottom="true"
         android:paddingBottom="0dp"
         android:adjustViewBounds="true"
         android:id="@+id/splash_blood"
-        android:src="@drawable/slider"
+        android:src="@drawable/pngwave"
         />
 
 
     <TextView
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:layout_gravity="center"
         android:layout_marginTop="0dp"
-        android:textStyle="bold|normal"
-        android:textColor="#01052C"
-        android:text="\u2605 \u2605 \u1F600 Customer Satisfaction == Customer Loyalty "
+        android:textStyle="bold"
+        android:textColor="#0615AC"
+        android:text="\u2605 \u2605 Customer Satisfaction == Customer Loyalty "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <TextView
         android:textSize="13sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold|normal"
         android:textColor="#00041F"
+        android:text="\u00a9 2020 Comprehensive Retails Pvt.Ltd."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="13sp"
+        android:textColor="#010836"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:textStyle="bold"

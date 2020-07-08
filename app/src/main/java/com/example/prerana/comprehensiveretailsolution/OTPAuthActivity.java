@@ -16,6 +16,9 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Created by Prerana Pandit on 08/07/2020.
+ */
 
 public class OTPAuthActivity extends AppCompatActivity {
 
