@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "934473622532",
+    "firebase_url": "https://comprehensiveretailsauth.firebaseio.com",
+    "project_id": "comprehensiveretailsauth",
+    "storage_bucket": "comprehensiveretailsauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934473622532:android:5128883ea8a17a45770151",
+        "android_client_info": {
+          "package_name": "com.example.prerana.comprehensiveretailsolution"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934473622532-l0m83ik5gqqkrb4ipp2bb41r8aup7eai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.prerana.comprehensiveretailsolution",
+            "certificate_hash": "c9c40b8770736c2b7c0ad4cbc65c8f99bc4f661a"
+          }
+        },
+        {
+          "client_id": "934473622532-mfib40i5u13t791n52btkmiiohpu9uqr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgZwuW8jcvLVoBYnmAI1f4nAxGm90Q2tY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934473622532-mfib40i5u13t791n52btkmiiohpu9uqr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
