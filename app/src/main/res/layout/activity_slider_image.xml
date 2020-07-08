@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.SliderImageActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            />
+
+        <TextView
+            android:id="@+id/tvRetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SKIP >"
+            android:layout_marginLeft="295dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textStyle="normal|bold"
+            android:textColor="#fff"
+            />
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="550dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="10dip"
+            app:centered="true"
+            app:fillColor="#02094E"
+            app:pageColor="@null"
+            app:snap="false"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
