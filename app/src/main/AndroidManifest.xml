@@ -23,7 +23,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.SliderImageActivity"></activity>
+        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.SliderImageActivity" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +36,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".OTPAuthActivity"></activity>
+        <activity android:name=".OTPAuthActivity" />
         <activity android:name=".VerificationCodeActivity" />
     </application>
 
