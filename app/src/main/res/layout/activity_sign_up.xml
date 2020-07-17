@@ -12,7 +12,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
+        android:padding="10dp"
         >
 
         <LinearLayout
@@ -26,12 +26,40 @@
                 android:id="@+id/imgProfile"
                 android:layout_width="150dp"
                 android:scaleType="fitXY"
-                android:background="@drawable/img"
+                android:background="@drawable/clogo"
                 android:layout_height="150dp"
                 />
 
             <!-- Name Label -->
             <!--Vectors added through new drawable folder-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etBusinessName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:background="@drawable/shapeemail"
+                    android:drawableLeft="@drawable/ic_business_center_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="Business Name"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:textColorHint="#090000"
+                    android:textColorHighlight="#0C0000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -53,7 +81,7 @@
                     android:background="@drawable/shapeemail"
                     android:drawableLeft="@drawable/ic_person_black_24dp"
                     android:drawablePadding="10dp"
-                    android:hint="Full Name"
+                    android:hint="Owner Name"
                     android:inputType="text"
                     android:textColor="#200101"
                     android:textColorHint="#090000"
@@ -117,135 +145,6 @@
                 </RadioGroup>
             </LinearLayout>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-                <RadioGroup
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/shaperadio"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:padding="10dp"
-                    android:gravity="center_horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/rdoGroup_BloodGroup"
-                    >
-
-                    <RadioButton
-                        android:id="@+id/radioOP"
-                        android:layout_width="80sp"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="O+"
-                        android:background="@drawable/buttonbackground"
-                        android:button="@android:color/transparent"
-                        android:textSize="18dp"
-                        android:checked="true"
-                        android:textColor="@drawable/radio_flat_text_selector"
-                        />
-
-                    <RadioButton
-                        android:id="@+id/radioON"
-                        android:layout_width="80sp"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="O-"
-                        android:background="@drawable/buttonbackground"
-                        android:button="@android:color/transparent"
-                        android:textSize="18dp"
-
-                        android:textColor="@drawable/radio_flat_text_selector"
-                        />
-                    <RadioButton
-                        android:id="@+id/radioAP"
-                        android:layout_width="80sp"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="A+"
-                        android:background="@drawable/buttonbackground"
-                        android:button="@android:color/transparent"
-                        android:textSize="18dp"
-
-                        android:textColor="@drawable/radio_flat_text_selector"
-                        />
-                    <RadioButton
-                        android:id="@+id/radioAN"
-                        android:layout_width="80sp"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="A-"
-                        android:background="@drawable/buttonbackground"
-                        android:button="@android:color/transparent"
-                        android:textSize="18dp"
-                        android:textColor="@drawable/radio_flat_text_selector"
-
-                        />
-
-                    <RadioButton
-                        android:id="@+id/radioBP"
-                        android:layout_width="80sp"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="B+"
-                        android:background="@drawable/buttonbackground"
-                        android:button="@android:color/transparent"
-                        android:textSize="18dp"
-                        android:textColor="@drawable/radio_flat_text_selector"
-                        />
-                    <RadioButton
-                        android:id="@+id/radioBN"
-                        android:layout_width="80sp"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="B-"
-                        android:background="@drawable/buttonbackground"
-                        android:button="@android:color/transparent"
-                        android:textSize="18dp"
-                        android:textColor="@drawable/radio_flat_text_selector"
-                        />
-                    <RadioButton
-                        android:id="@+id/radioABP"
-                        android:layout_width="80sp"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="AB+"
-                        android:background="@drawable/buttonbackground"
-                        android:button="@android:color/transparent"
-                        android:textSize="18dp"
-                        android:textColor="@drawable/radio_flat_text_selector"
-                        />
-                    <RadioButton
-                        android:id="@+id/radioABN"
-                        android:layout_width="80sp"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="AB-"
-                        android:background="@drawable/buttonbackground"
-                        android:button="@android:color/transparent"
-                        android:textSize="18dp"
-                        android:textColor="@drawable/radio_flat_text_selector"
-                        />
-
-                </RadioGroup>
-            </LinearLayout>
 
             <Spinner
                 android:id="@+id/spinCity"
@@ -411,13 +310,14 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mark me as a Donor"
-                    android:layout_marginRight="90dp"
+                    android:text="Mark me as a Wholesaler"
+                    android:layout_marginRight="70dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginBottom="10dp"
+                    android:textStyle="bold|normal"
                     android:layout_marginTop="20dp"
-                    android:textColor="#200101"
-                    android:buttonTint="#EB1010"
+                    android:textColor="#011803"
+                    android:buttonTint="#05B412"
                     android:checked="true"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -426,9 +326,9 @@
                     android:layout_marginTop="20dp"
                     android:layout_height="wrap_content"
                     android:text="LOG IN"
-                    android:textSize="20dp"
+                    android:textSize="22dp"
                     android:textStyle="bold|normal"
-                    android:textColor="#680101"
+                    android:textColor="#8D0313"
                     />
 
             </LinearLayout>
