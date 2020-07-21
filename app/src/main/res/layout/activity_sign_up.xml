@@ -7,20 +7,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+
     tools:context=".activity.SignUpActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
+        android:padding="0dp"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@drawable/mdesigns"
+            android:padding="10dp"
             android:gravity="center"
             >
+
 
             <ImageView
                 android:id="@+id/imgProfile"
@@ -301,6 +305,79 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Security Question :"
+                android:textStyle="bold|normal"
+                android:textSize="18dp"
+                android:textColor="#045BB3"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" (Choose among them and provide three correct answers!) "
+                android:textStyle="bold|normal"
+                android:textSize="12dp"
+                android:textColor="#011224"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tvSQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 2 + 5 = "
+                    android:layout_marginRight="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold|normal"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000B1B"
+                    android:textSize="20dp"
+                    android:background="#C1D8FD"
+             />
+
+                <Button
+                    android:id="@+id/btnOneAns"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
+                    android:text=" 7 "
+                    android:textStyle="bold|normal"
+                    android:textColor="#8D0313"
+                    />
+
+                <Button
+                    android:id="@+id/btnTwoAns"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textStyle="bold|normal"
+                    android:textColor="#8D0313"
+                    />
+
+                <Button
+                    android:id="@+id/btnThreeAns"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
+                    android:text=" 9 "
+                    android:textStyle="bold|normal"
+                    android:textColor="#8D0313"
+                    />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -334,6 +411,8 @@
             </LinearLayout>
 
 
+
+
             <Button
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
@@ -348,12 +427,16 @@
                 android:background="@drawable/shapesignup"
                 android:textColor="#fff"/>
 
+
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvCountry"
                 android:textColor="#fff"
                 />
+
 
         </LinearLayout>
     </ScrollView>
