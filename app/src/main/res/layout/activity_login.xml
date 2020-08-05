@@ -108,7 +108,7 @@
                     android:layout_marginTop="20dp"
                     android:textColor="#1A237E"
                     android:buttonTint="#1A237E"
-                    android:checked="true"/>
+                    android:checked="false"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:text="Seconds Remaining"
                     android:textStyle="bold|normal"
-                    android:background="@drawable/shapesignup"
+                    android:background="@drawable/shapetimer"
                     android:textSize="15dp"
                     android:textAlignment="center"
                     android:layout_marginRight="10dp"
@@ -178,7 +178,6 @@
                     android:padding="10dp"/>
 
             </LinearLayout>
-
 
 
             <Button

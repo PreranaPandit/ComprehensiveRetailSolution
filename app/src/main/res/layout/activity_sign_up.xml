@@ -410,8 +410,16 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="By clicking 'SIGN UP', you must agree to our terms and policy"
+                android:textStyle="normal"
+                android:textColor="#5F6061"
+                android:layout_margin="5dp"
+               android:textSize="12dp"
 
-
+                />
 
             <Button
                 android:id="@+id/btnSignUp"

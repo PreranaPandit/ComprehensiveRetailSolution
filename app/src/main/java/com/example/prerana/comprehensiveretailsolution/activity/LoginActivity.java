@@ -111,7 +111,6 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Either username or password is incorrect", Toast.LENGTH_SHORT).show();
             etEmailAddress.requestFocus();
-
             tvNoAttempts.setVisibility(View.VISIBLE);
             counter--;
             tvNoAttempts.setText(Integer.toString(counter));
@@ -120,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                 btnLogInUser.setEnabled(false);
                // btnLogInUser.setBackgroundColor(Color.rgb(199,99,230));
                 btnLogInUser.setTextColor(Color.TRANSPARENT);
-               Toast.makeText(this, "Your attempt for login is finished, please try again after 60 second!!..", Toast.LENGTH_SHORT).show();
+            //   Toast.makeText(this, "Your attempt for login is finished, please try again after 60 second!!..", Toast.LENGTH_SHORT).show();
 
 
                 builder.setMessage("Your attempt for login is finished, please try again after 60 second!!..")
@@ -129,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                btnLogInUser.setEnabled(true);
+                                btnLogInUser.setEnabled(false);
                                 Toast.makeText(LoginActivity.this, "Login again with correct credentials after 60 seconds !!", Toast.LENGTH_SHORT).show();
 //                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
 //                                startActivity(intent);

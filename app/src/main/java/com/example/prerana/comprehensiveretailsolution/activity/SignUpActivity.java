@@ -140,6 +140,187 @@ public class SignUpActivity extends AppCompatActivity {
 
         updateQuestion();
 
+
+        multiChoice();
+
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BrowseImage();
+            }
+        });
+
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //validations for widgets
+                if (TextUtils.isEmpty(etBusinessName.getText())) {
+                    etBusinessName.setError("Enter your business name");
+                    etBusinessName.requestFocus();
+                    return;
+                }
+                else if (TextUtils.isEmpty(etFullName.getText())) {
+                    etFullName.setError("Enter your name");
+                    etFullName.requestFocus();
+                    return;
+                }
+                else if (TextUtils.isEmpty(etContact.getText())) {
+                    etContact.setError("Enter contact number ");
+                    etContact.requestFocus();
+                    return;
+                }
+                else if (etContact.length() != 10) {
+                    etContact.setError("Contact number must be of 10 numbers");
+                    etContact.requestFocus();
+                    return;
+                }
+                else if (TextUtils.isEmpty(etEmail.getText())) {
+                    etEmail.setError("Enter your email address");
+                    etEmail.requestFocus();
+                    return;
+                }
+                else if(!etEmail.getText().toString().trim().matches(emailPattern))
+                {
+                    etEmail.setError("Email address must be in correct pattern");
+                    etEmail.requestFocus();
+                    return;
+                }
+
+                else if (etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
+                    if(validate()) {
+                        saveImageOnly();
+                        //signUp();
+                    }
+                } else {
+                    Toast.makeText(SignUpActivity.this, "Password does not match", Toast.LENGTH_SHORT).show();
+                    etPassword.requestFocus();
+                    return;
+                }
+            }
+        });
+
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(
+                this, android.R.layout.select_dialog_item,address
+        );
+
+        autoCompleteTextView.setAdapter(stringArrayAdapter);
+        //will start working from first character
+        autoCompleteTextView.setThreshold(1);
+
+        spinCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(SignUpActivity.this, "The country you selected is : "+country[position], Toast.LENGTH_SHORT).show();
+                String countries = String.valueOf(country[position]);
+                tvCountry.setText(countries);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        CustomAdapter customAdapter=new CustomAdapter(getApplicationContext(),images,country);
+        spinCity.setAdapter(customAdapter);
+
+
+        tvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.setMessage("Did you completed your registration ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                                Toast.makeText(SignUpActivity.this, "You may have completed your registration!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //Action for no button clicked
+                                dialog.cancel();
+                                Toast.makeText(SignUpActivity.this, "You have not completed your registration yet!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                //creating dialog box
+                AlertDialog alert = builder.create();
+                alert.setTitle(" Registration Confirmation ");
+                alert.show();
+            }
+        });
+    }
+
+    private void updateScore(int point) {
+        mScoreView.setText(" + mScore");
+
+        if(mScore == 3){
+            signUp();
+        }
+        else{
+            Toast.makeText(this, "Please go through the security questions!!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void updateQuestion() {
+        mQuestionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
+        mButtonChoice1.setText(mQuestionLibrary.getChoice1(mQuestionNumber));
+        mButtonChoice2.setText(mQuestionLibrary.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mQuestionLibrary.getChoice3(mQuestionNumber));
+
+        mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
+        mQuestionNumber++;
+    }
+
+    private void signUp() {
+
+        String businessName = etBusinessName.getText().toString();
+        String fullName = etFullName.getText().toString();
+        String contactNumber = etContact.getText().toString();
+        String password = etPassword.getText().toString();
+        String emailId = etEmail.getText().toString();
+
+
+        CustomAdapter customAdapter=new CustomAdapter(getApplicationContext(),images,country);
+        spinCity.setAdapter(customAdapter);
+
+        String country = tvCountry.getText().toString();
+        String address = autoCompleteTextView.getText().toString();
+
+        int selectedGender = rdoGroup.getCheckedRadioButtonId();
+        RadioButton radioGender = (RadioButton) findViewById(selectedGender);
+        String gender = radioGender.getText().toString();
+
+        User users = new User(businessName,fullName,gender,country,contactNumber,address,emailId,password,imageName);
+
+        UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
+        Call<SignUpResponse> signUpResponseCall = usersAPI.registerUser(users);
+
+        signUpResponseCall.enqueue(new Callback<SignUpResponse>() {
+            @Override
+            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+                if (!response.isSuccessful()) {
+
+                    Toast.makeText(SignUpActivity.this, "Code " + response.code(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Toast.makeText(SignUpActivity.this, "Registered successfully", Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<SignUpResponse> call, Throwable t) {
+                Toast.makeText(SignUpActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    public void multiChoice(){
         //Start of Button Listener for button1
         mButtonChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,181 +377,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-//        if(mScore == 3){
-//            Intent intent = new Intent(getApplicationContext(), MainActivity)
-//        }
-
-
-        imgProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BrowseImage();
-            }
-        });
-
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //validations for widgets
-                if (TextUtils.isEmpty(etFullName.getText())) {
-                    etFullName.setError("Enter your name");
-                    etFullName.requestFocus();
-                    return;
-                }
-                else if (TextUtils.isEmpty(etContact.getText())) {
-                    etContact.setError("Enter contact number ");
-                    etContact.requestFocus();
-                    return;
-                }
-                else if (etContact.length() != 10) {
-                    etContact.setError("Contact number must be of 10 numbers");
-                    etContact.requestFocus();
-                    return;
-                }
-                else if (TextUtils.isEmpty(etEmail.getText())) {
-                    etEmail.setError("Enter your email address");
-                    etEmail.requestFocus();
-                    return;
-                }
-                else if(!etEmail.getText().toString().trim().matches(emailPattern))
-                {
-                    etEmail.setError("Email address must be in correct pattern");
-                    etEmail.requestFocus();
-                    return;
-                }
-
-                else if (etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
-                    if(validate()) {
-                        saveImageOnly();
-                        signUp();
-                    }
-                } else {
-                    Toast.makeText(SignUpActivity.this, "Password does not match", Toast.LENGTH_SHORT).show();
-                    etPassword.requestFocus();
-                    return;
-                }
-            }
-        });
-
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(
-                this, android.R.layout.select_dialog_item,address
-        );
-
-        autoCompleteTextView.setAdapter(stringArrayAdapter);
-        //will start working from first character
-        autoCompleteTextView.setThreshold(1);
-
-        spinCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(SignUpActivity.this, "The country you selected is : "+country[position], Toast.LENGTH_SHORT).show();
-                String countries = String.valueOf(country[position]);
-                tvCountry.setText(countries);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        CustomAdapter customAdapter=new CustomAdapter(getApplicationContext(),images,country);
-        spinCity.setAdapter(customAdapter);
-
-
-        tvLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                builder.setMessage("Did you completed your registration ?")
-                        .setCancelable(false)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                                Toast.makeText(SignUpActivity.this, "You may have completed your registration!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                startActivity(intent);
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //Action for no button clicked
-                                dialog.cancel();
-                                Toast.makeText(SignUpActivity.this, "You have not completed your registration yet!", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-                //creating dialog box
-                AlertDialog alert = builder.create();
-                alert.setTitle(" Registration Confirmation ");
-                alert.show();
-            }
-        });
     }
-
-    private void updateScore(int point) {
-        mScoreView.setText(" + mScore");
-
-        if(mScore == 3){
-            signUp();
-        }
-    }
-
-    private void updateQuestion() {
-        mQuestionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
-        mButtonChoice1.setText(mQuestionLibrary.getChoice1(mQuestionNumber));
-        mButtonChoice2.setText(mQuestionLibrary.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mQuestionLibrary.getChoice3(mQuestionNumber));
-
-        mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
-        mQuestionNumber++;
-    }
-
-    private void signUp() {
-
-        String businessName = etBusinessName.getText().toString();
-        String fullName = etFullName.getText().toString();
-        String contactNumber = etContact.getText().toString();
-        String password = etPassword.getText().toString();
-        String emailId = etEmail.getText().toString();
-
-
-        CustomAdapter customAdapter=new CustomAdapter(getApplicationContext(),images,country);
-        spinCity.setAdapter(customAdapter);
-
-        String country = tvCountry.getText().toString();
-        String address = autoCompleteTextView.getText().toString();
-
-        int selectedGender = rdoGroup.getCheckedRadioButtonId();
-        RadioButton radioGender = (RadioButton) findViewById(selectedGender);
-        String gender = radioGender.getText().toString();
-
-        User users = new User(businessName,fullName,gender,country,contactNumber,address,emailId,password,imageName);
-
-        UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
-        Call<SignUpResponse> signUpResponseCall = usersAPI.registerUser(users);
-
-        signUpResponseCall.enqueue(new Callback<SignUpResponse>() {
-            @Override
-            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
-                if (!response.isSuccessful()) {
-                    Toast.makeText(SignUpActivity.this, "Code " + response.code(), Toast.LENGTH_LONG).show();
-                    return;
-                }
-                Toast.makeText(SignUpActivity.this, "Registered successfully", Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onFailure(Call<SignUpResponse> call, Throwable t) {
-                Toast.makeText(SignUpActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
 
     private void BrowseImage() {
             Intent intent = new Intent(Intent.ACTION_PICK);
@@ -403,6 +410,7 @@ public class SignUpActivity extends AppCompatActivity {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
             imageName = imageResponseResponse.body().getFilename();
             Toast.makeText(this, "Image inserted" + imageName, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please go through the security questions for complete registration!!", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
