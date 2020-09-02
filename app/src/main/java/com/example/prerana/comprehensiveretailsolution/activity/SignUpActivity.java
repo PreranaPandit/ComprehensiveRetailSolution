@@ -187,10 +187,11 @@ public class SignUpActivity extends AppCompatActivity {
                 }
 
                 else if (etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
-                    if(validate()) {
-                        saveImageOnly();
-                        //signUp();
-                    }
+
+//                        saveImageOnly();
+//                        //signUp();
+                        Toast.makeText(SignUpActivity.this, "Please process for security questions at first!", Toast.LENGTH_SHORT).show();
+
                 } else {
                     Toast.makeText(SignUpActivity.this, "Password does not match", Toast.LENGTH_SHORT).show();
                     etPassword.requestFocus();
@@ -259,11 +260,20 @@ public class SignUpActivity extends AppCompatActivity {
         mScoreView.setText(" + mScore");
 
         if(mScore == 3){
-            signUp();
+
+            if(validate()) {
+                saveImageOnly();
+                signUp();
+            }
+
         }
-        else{
-            Toast.makeText(this, "Please go through the security questions!!", Toast.LENGTH_SHORT).show();
+        else if (mScore == 2){
+            Toast.makeText(this, "Score : 2", Toast.LENGTH_SHORT).show();
         }
+        else  {
+            Toast.makeText(this, "Score : 1", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void updateQuestion() {
@@ -309,6 +319,8 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
                 Toast.makeText(SignUpActivity.this, "Registered successfully", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
 
             }
 
@@ -330,7 +342,7 @@ public class SignUpActivity extends AppCompatActivity {
                     updateScore(mScore);
                     updateQuestion();
 
-                    Toast.makeText(SignUpActivity.this, "Your answer is correct!!", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(SignUpActivity.this, "Your answer is correct!!", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(SignUpActivity.this, "Your answer is wrong!!", Toast.LENGTH_SHORT).show();
@@ -349,7 +361,7 @@ public class SignUpActivity extends AppCompatActivity {
                     updateScore(mScore);
                     updateQuestion();
 
-                    Toast.makeText(SignUpActivity.this, "Your answer is correct !!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SignUpActivity.this, "Your answer is correct !!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(SignUpActivity.this, "Your answer is wrong!!", Toast.LENGTH_SHORT).show();
@@ -370,7 +382,7 @@ public class SignUpActivity extends AppCompatActivity {
                     updateScore(mScore);
                     updateQuestion();
 
-                    Toast.makeText(SignUpActivity.this, "Your answer is correct !!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SignUpActivity.this, "Your answer is correct !!", Toast.LENGTH_SHORT).show();
                 } else{
                     Toast.makeText(SignUpActivity.this, "Your answer is wrong !!", Toast.LENGTH_SHORT).show();
                 }
@@ -410,7 +422,7 @@ public class SignUpActivity extends AppCompatActivity {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
             imageName = imageResponseResponse.body().getFilename();
             Toast.makeText(this, "Image inserted" + imageName, Toast.LENGTH_LONG).show();
-            Toast.makeText(this, "Please go through the security questions for complete registration!!", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "Please go through the security questions for complete registration!!", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
