@@ -12,12 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.prerana.comprehensiveretailsolution.R;
-import com.example.prerana.comprehensiveretailsolution.activity.TestingActivity;
+import com.example.prerana.comprehensiveretailsolution.activity.AddSalesActivity;
+import com.example.prerana.comprehensiveretailsolution.activity.SearchSalesActivity;
 
 public class GalleryFragment extends Fragment implements View.OnClickListener {
 
     private GalleryViewModel galleryViewModel;
-    private Button btnAddSales;
+    private Button btnAddSales, btnSearchSales;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -33,15 +34,26 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
 //            }
 //        });
 
-        //btnAddSales = root.findViewById(R.id.btnAddSales);
+        btnAddSales = root.findViewById(R.id.btnAddSales);
+        btnSearchSales = root.findViewById(R.id.btnSearchSales);
+
 
         btnAddSales.setOnClickListener(this);
+        btnSearchSales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent searchIntent = new Intent(getContext(), AddSalesActivity.class);
+               startActivity(searchIntent);
+            }
+        });
+
         return root;
     }
 
+
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(getContext(), TestingActivity.class);
-        startActivity(intent);
+        Intent addSalesIntent = new Intent(getContext(), SearchSalesActivity.class);
+        startActivity(addSalesIntent);
     }
 }
