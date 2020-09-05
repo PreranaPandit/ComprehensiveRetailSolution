@@ -47,7 +47,7 @@ public interface UsersAPI {
     @PUT("users/profiles")
     public Call<ProfileResponse>  updateProfiles(@Header("Authorization") String token, @Field("fullName") String fullName, @Field("gender") String gender, @Field("bloodGroup") String bloodGroup, @Field("country") String country, @Field("contactNumber") String contactNumber, @Field("address") String address, @Field("emailId") String emailId);
 
-    @GET("users/logout")
+    @GET("users/LogoutFragment")
     Call<Void> logout(@Header("Authorization") String token);
 
 }
