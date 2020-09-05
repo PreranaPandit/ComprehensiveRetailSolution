@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 app:cardCornerRadius="4dp"
-                android:layout_margin="8dp"
+                android:layout_margin="5dp"
                 app:cardElevation="2dp"
                 app:cardMaxElevation="2dp"
                 >
@@ -47,7 +47,7 @@
                         android:gravity="center"
                         android:padding="10dip"
                         app:centered="true"
-                        app:fillColor="#580202"
+                        app:fillColor="#0D145C"
                         app:pageColor="@null"
                         app:snap="false" />
 
@@ -59,11 +59,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="#2C6FD8"
+                android:background="#265DB3"
+                android:padding="4dp"
                 android:layout_gravity="center"
                 android:text="Comprehensive Retail Solution"
                 android:textSize="18dp"
-                android:textStyle="normal|bold"
+                android:textStyle="bold|normal"
                 android:textColor="#F7F4F4"
                 />
 
@@ -71,19 +72,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="#F7E5E5"
+                android:background="#CBDBFC"
                 android:layout_marginTop="5dp"
                 >
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfileImage"
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:layout_marginLeft="20dp"
-                    android:scaleType="centerCrop"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginLeft="10dp"
+                    app:civ_border_color="#1D0B6D"
+                    app:civ_border_width="2dp"
                     android:src="@drawable/logo"
-                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
                     />
 
                 <LinearLayout
@@ -95,24 +97,24 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Welcome!!"
-                        android:textSize="19dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="29dp"
-                        android:textColor="#160101"
-                        android:textStyle="bold"
+                        android:text="Welcome,"
+                        android:textSize="28dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="#01042C"
+                        android:textStyle="bold|normal"
 
                         />
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvFullName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Full Name"
-                        android:textSize="15dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="29dp"
-                        android:textColor="#160101"
-                        android:textStyle="normal|bold"
+                        android:text="Business Name"
+                        android:textSize="18dp"
+
+                        android:layout_marginLeft="19dp"
+                        android:textColor="#040B5A"
+                        android:textStyle="normal"
 
                         />
 
@@ -122,10 +124,8 @@
                         android:layout_height="wrap_content"
                         android:text="EmailAddress"
                         android:textSize="15dp"
-                        android:layout_marginLeft="29dp"
-                        android:textColor="#160101"
-                        android:textStyle="normal"
-
+                        android:layout_marginLeft="19dp"
+                        android:textColor="#01052C"
                         />
 
                 </LinearLayout>
