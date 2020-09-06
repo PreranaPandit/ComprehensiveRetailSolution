@@ -42,7 +42,7 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
         btnSearchSales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent searchIntent = new Intent(getContext(), AddSalesActivity.class);
+               Intent searchIntent = new Intent(getContext(), SearchSalesActivity.class);
                startActivity(searchIntent);
             }
         });
@@ -53,7 +53,7 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent addSalesIntent = new Intent(getContext(), SearchSalesActivity.class);
+        Intent addSalesIntent = new Intent(getContext(), AddSalesActivity.class);
         startActivity(addSalesIntent);
     }
 }

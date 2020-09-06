@@ -10,27 +10,27 @@ import android.widget.TextView;
 
 import com.example.prerana.comprehensiveretailsolution.R;
 
-public class CustomAdapter extends BaseAdapter {
+public class SalesCustomAdapter extends BaseAdapter {
 
     Context context;
     int images[];
-    String[] country;
+    String[] category;
     LayoutInflater inflater;
 
 
 
-    public CustomAdapter(Context context, int[] images, String[] country, LayoutInflater inflater) {
+    public SalesCustomAdapter(Context context, int[] images, String[] category, LayoutInflater inflater) {
         this.context = context;
         this.images = images;
-        this.country = country;
+        this.category = category;
         this.inflater = inflater;
     }
 
-    public CustomAdapter(Context applicationContext, int[] images, String[] country) {
-      this.context = applicationContext;
-      this.images = images;
-      this.country = country;
-      inflater = (LayoutInflater.from(applicationContext));
+    public SalesCustomAdapter(Context applicationContext, int[] images, String[] category) {
+        this.context = applicationContext;
+        this.images = images;
+        this.category = category;
+        inflater = (LayoutInflater.from(applicationContext));
     }
 
 
@@ -56,7 +56,7 @@ public class CustomAdapter extends BaseAdapter {
         ImageView icon = (ImageView) view.findViewById(R.id.imageView);
         TextView names = (TextView) view.findViewById(R.id.textView);
         icon.setImageResource(images[i]);
-        names.setText(country[i]);
+        names.setText(category[i]);
 
         return view;
     }

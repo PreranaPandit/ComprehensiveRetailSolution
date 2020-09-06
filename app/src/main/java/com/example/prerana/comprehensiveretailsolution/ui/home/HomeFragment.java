@@ -1,10 +1,12 @@
 package com.example.prerana.comprehensiveretailsolution.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.prerana.comprehensiveretailsolution.R;
+import com.example.prerana.comprehensiveretailsolution.activity.AddSalesActivity;
 import com.example.prerana.comprehensiveretailsolution.adapters.SliderImageAdapter;
 import com.example.prerana.comprehensiveretailsolution.api.UsersAPI;
 import com.example.prerana.comprehensiveretailsolution.model.ImageModel;
@@ -31,12 +34,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
 
     CircleImageView imgBusinessLogo;
     TextView tvBusinessName, tvEmailAddress;
+    LinearLayout lvAddSales, lvPurchaseSales;
 
 
     private static ViewPager mPager;
@@ -63,6 +67,16 @@ public class HomeFragment extends Fragment {
         imgBusinessLogo = root.findViewById(R.id.imgProfileImage);
         tvBusinessName = root.findViewById(R.id.tvFullName);
         tvEmailAddress = root.findViewById(R.id.tvEmailAdrress);
+        lvAddSales = root.findViewById(R.id.addSales);
+        lvPurchaseSales = root.findViewById(R.id.purchaseSales);
+
+        lvAddSales.setOnClickListener(this);
+        lvPurchaseSales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent purchaseIntent = new Intent(getContext(), Purc)
+            }
+        });
 
         //function to load users details as image, name, emailid
         loadCurrentUser();
@@ -165,5 +179,11 @@ public class HomeFragment extends Fragment {
         }
 
         return list;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(getContext(), AddSalesActivity.class);
+        startActivity(intent);
     }
 }
