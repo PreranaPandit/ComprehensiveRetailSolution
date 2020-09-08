@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:background="#265DB3"
-                android:padding="4dp"
+                android:padding="5dp"
                 android:layout_gravity="center"
                 android:text="Comprehensive Retail Solution"
                 android:textSize="18dp"
@@ -72,8 +72,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="#CBDBFC"
-                android:layout_marginTop="5dp"
+                android:background="#ABD5F7"
+                android:layout_marginTop="1dp"
                 >
 
 
@@ -132,14 +132,7 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="69dp"
-                android:background="@drawable/logo"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                />
+
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -169,27 +162,29 @@
                     app:cardCornerRadius="4dp"
                     >
                     <LinearLayout
+                        android:id="@+id/addSales"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="#E3EEFA"
                         >
 
 
                         <ImageView
-                            android:src="@drawable/logo"
+                            android:src="@drawable/saleslogo"
                             android:layout_gravity="center_horizontal"
                             android:layout_width="100dp"
-                            android:layout_height="120dp" />
+                            android:layout_height="125dp" />
 
                         <TextView
                             android:id="@+id/tvRequestBlood"
-                            android:text="Request Blood"
+                            android:text="Add Sales"
                             android:textColorHighlight="#D60A0A"
                             android:textAlignment="center"
                             android:layout_gravity="center"
                             android:textColor="@android:color/black"
                             android:textSize="18sp"
-                            android:textStyle="bold"
+                            android:textStyle="normal|bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -208,21 +203,23 @@
                     app:cardCornerRadius="4dp"
                     >
                     <LinearLayout
+                        android:id="@+id/purchaseSales"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="#E3EEFA"
                         >
 
 
                         <ImageView
-                            android:src="@drawable/logo"
+                            android:src="@drawable/purchaselogo"
                             android:layout_gravity="center_horizontal"
                             android:layout_width="100dp"
-                            android:layout_height="120dp" />
+                            android:layout_height="125dp" />
 
                         <TextView
                             android:id="@+id/tvDonateBlood"
-                            android:text="Donate Blood"
+                            android:text="Add Purchase"
                             android:textAlignment="center"
                             android:layout_gravity="center"
                             android:textColor="@android:color/black"
@@ -238,80 +235,6 @@
 
                 <!-- Column 1st-->
 
-                <com.google.android.material.card.MaterialCardView
-                    android:background="#DDD3D3"
-
-                    android:layout_gravity="center"
-                    android:layout_width="150dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_height="150dp"
-                    app:cardCornerRadius="4dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-
-
-                        <ImageView
-                            android:src="@drawable/logo"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_width="100dp"
-                            android:layout_height="120dp" />
-
-                        <TextView
-                            android:id="@+id/searchBloodBank"
-                            android:text="Blood Banks"
-                            android:textColorHighlight="#D60A0A"
-                            android:textAlignment="center"
-                            android:layout_gravity="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-
-
-                <com.google.android.material.card.MaterialCardView
-                    android:background="#DDD3D3"
-                    android:layout_marginTop="9dp"
-                    android:layout_gravity="center"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_marginLeft="5dp"
-                    app:cardCornerRadius="4dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-
-
-                        <ImageView
-                            android:src="@drawable/logo"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_width="100dp"
-                            android:layout_height="110dp" />
-
-                        <TextView
-                            android:id="@+id/searchHospital"
-                            android:text="Hospitals"
-                            android:textAlignment="center"
-                            android:layout_gravity="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
 
             </GridLayout>

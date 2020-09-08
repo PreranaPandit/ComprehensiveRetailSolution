@@ -4,9 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F4F4F5"
     android:orientation="vertical"
     >
 
-    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/saleslog"
+        />
 
+    <Button
+    android:id="@+id/btnAddSales"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="ADD SALES"
+    android:shadowColor="@android:color/transparent"
+    android:padding="15dp"
+    android:layout_marginRight="50dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="50dp"
+    android:background="@drawable/shapesignup"
+    android:textColor="#fff"/>
+
+
+    <Button
+        android:id="@+id/btnSearchSales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEARCH SALES"
+        android:shadowColor="@android:color/transparent"
+        android:padding="15dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/shapesignup"
+        android:textColor="#fff"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@drawable/sales"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp"
+        />
 </LinearLayout>
