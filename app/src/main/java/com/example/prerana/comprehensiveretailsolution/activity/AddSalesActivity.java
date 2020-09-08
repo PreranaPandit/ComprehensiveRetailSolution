@@ -1,31 +1,53 @@
 package com.example.prerana.comprehensiveretailsolution.activity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.prerana.comprehensiveretailsolution.MainActivity;
 import com.example.prerana.comprehensiveretailsolution.R;
 import com.example.prerana.comprehensiveretailsolution.adapters.SalesCustomAdapter;
+import com.example.prerana.comprehensiveretailsolution.api.AddSalesAPI;
+import com.example.prerana.comprehensiveretailsolution.model.AddSales;
+import com.example.prerana.comprehensiveretailsolution.url.Url;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class AddSalesActivity extends AppCompatActivity {
 
     private Spinner spinCategory;
-    TextView tvCategory;
-    Button btnsDate;
-    TextView tvDate;
+    private TextView tvCategory;
+    private Button btnsDate, btnAddSales;
+    private TextView tvDate;
+
+    private EditText sCustomerName, scustomerPhone, sBillNo, sAmount, sRemarks;
+    private RadioGroup rdoGroup;
+    private RadioButton radioPaid, radioUnpaid;
+
+    //Alert
+    AlertDialog.Builder builder;
 
 
     int year2, month2, day2;
@@ -49,8 +71,18 @@ public class AddSalesActivity extends AppCompatActivity {
 
         spinCategory = (Spinner) findViewById(R.id.spinCategory);
         tvCategory = findViewById(R.id.tvCategory);
-        btnsDate = findViewById(R.id.sDate);
+        btnsDate = (Button) findViewById(R.id.sDate);
         tvDate = findViewById(R.id.tvDate);
+        sCustomerName = findViewById(R.id.sCustomerName);
+        scustomerPhone = findViewById(R.id.sCustomerPhone);
+        sBillNo = findViewById(R.id.sBillNumber);
+        rdoGroup = findViewById(R.id.rdoGroup);
+        radioPaid = findViewById(R.id.radioPaid);
+        radioUnpaid = findViewById(R.id.radioUnpaid);
+        sRemarks = findViewById(R.id.sRemarks);
+        btnAddSales = (Button) findViewById(R.id.btnAddingSale);
+        sAmount = findViewById(R.id.sAmount);
+        builder = new AlertDialog.Builder(this);
 
 
         final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
@@ -79,6 +111,94 @@ public class AddSalesActivity extends AppCompatActivity {
 
         SalesCustomAdapter customAdapter = new SalesCustomAdapter(getApplicationContext(),salesimages,salescategory);
         spinCategory.setAdapter(customAdapter);
+
+
+          btnAddSales.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  if(TextUtils.isEmpty(sCustomerName.getText())){
+                      sCustomerName.setError("Please enter customer name");
+                      sCustomerName.requestFocus();
+                      return;
+                  }
+                  else if (TextUtils.isEmpty(scustomerPhone.getText())) {
+                      scustomerPhone.setError("Please enter customer contact number ");
+                      scustomerPhone.requestFocus();
+                      return;
+                  }
+                  else if (scustomerPhone.length() != 10) {
+                      scustomerPhone.setError("Contact number must be of 10 digits");
+                      scustomerPhone.requestFocus();
+                      return;
+                  }
+                  else if (TextUtils.isEmpty(sBillNo.getText())) {
+                      sBillNo.setError("Please enter the bill number ");
+                      sBillNo.requestFocus();
+                      return;
+                  }
+                  else if (TextUtils.isEmpty(sAmount.getText())) {
+                      sAmount.setError("Please enter the sales amount ");
+                      sAmount.requestFocus();
+                      return;
+                  }
+                  else{
+                      addSales();
+                     // Toast.makeText(AddSalesActivity.this, "Sales added successfully!!", Toast.LENGTH_SHORT).show();
+                  }
+              }
+          });
+    }
+
+    private void addSales() {
+
+        String customerName = sCustomerName.getText().toString();
+        String customerPhone = scustomerPhone.getText().toString();
+        String billNumber = sBillNo.getText().toString();
+        String amount = sAmount.getText().toString();
+        String salesDate = tvDate.getText().toString();
+        String remarks = sRemarks.getText().toString();
+
+        SalesCustomAdapter customAdapter = new SalesCustomAdapter(getApplicationContext(),salesimages,salescategory);
+        spinCategory.setAdapter(customAdapter);
+
+        String category = tvCategory.getText().toString();
+
+        int selectedStatus = rdoGroup.getCheckedRadioButtonId();
+        RadioButton radioSalesStatus = (RadioButton) findViewById(selectedStatus);
+        String salesStatus = radioSalesStatus.getText().toString();
+
+        AddSales addSales = new AddSales(customerName,customerPhone,category,billNumber,amount,salesStatus,salesDate,remarks);
+
+        AddSalesAPI addSalesAPI = Url.getInstance().create(AddSalesAPI.class);
+        Call<AddSales> addSalesCall = addSalesAPI.addingSales(Url.token, addSales);
+
+        addSalesCall.enqueue(new Callback<AddSales>() {
+            @Override
+            public void onResponse(Call<AddSales> call, Response<AddSales> response) {
+
+                if(!response.isSuccessful()){
+                    Toast.makeText(AddSalesActivity.this, "Sales cannot be added. Error Code :" + response.code(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+              // builder = new AlertDialog.Builder(getApplication());
+                builder.setMessage("Sales is added successfully.");
+                builder.setCancelable(true);
+                AlertDialog salesAlert = builder.create();
+                salesAlert.show();
+                Intent intent = new Intent(getApplication(), MainActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<AddSales> call, Throwable t) {
+
+                Toast.makeText(AddSalesActivity.this, "Error"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
     }
 
     private void loadCalendar() {

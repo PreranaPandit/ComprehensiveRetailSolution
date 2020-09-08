@@ -108,7 +108,7 @@
                     android:layout_marginTop="20dp"
                     android:textColor="#1A237E"
                     android:buttonTint="#1A237E"
-                    android:checked="false"/>
+                    android:checked="true"/>
 
                 <TextView
                     android:layout_width="match_parent"
