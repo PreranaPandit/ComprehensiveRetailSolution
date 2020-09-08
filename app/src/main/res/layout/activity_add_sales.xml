@@ -118,12 +118,36 @@
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:singleLine="true"
-                      android:hint="Customer Phone number"
+                      android:hint="Bill number"
                       android:textSize="16dp"
                       android:padding="10dp"
                       android:textColor="#200101"
                       android:background="@drawable/regular_state"
                       />
+
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Amount:  "
+                      android:textColor="#000000"
+                      android:textSize="18dp"
+                      android:layout_marginTop="10dp"
+
+                      />
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/sAmount"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:singleLine="true"
+                      android:hint="Amount"
+                      android:textSize="16dp"
+                      android:padding="10dp"
+                      android:inputType="number"
+                      android:textColor="#200101"
+                      android:background="@drawable/regular_state"
+                      />
+
 
                  <LinearLayout
                            android:layout_width="match_parent"
@@ -152,7 +176,7 @@
                          app:layout_constraintEnd_toEndOf="parent"
                          app:layout_constraintStart_toStartOf="parent"
                          app:layout_constraintTop_toTopOf="parent"
-                         android:id="@+id/rdoGroup_BloodGroup"
+                         android:id="@+id/rdoGroup"
                          >
 
                      <RadioButton
@@ -262,7 +286,7 @@
                       />
 
                 <Button
-                    android:id="@+id/btnRequest"
+                    android:id="@+id/btnAddingSale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ADD SALES"
