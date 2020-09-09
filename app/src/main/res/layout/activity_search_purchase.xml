@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:background="#0D47A1"
         android:padding="15dp"
-        android:text="'PPPPPP is not about selling anymore, but about building trust and educating.'"
-        android:textSize="18dp"
+        android:text="'Purchasing power is a license to purchase power.'"
+        android:textSize="20dp"
         android:textAlignment="center"
         android:textStyle="bold|normal"
         android:textColor="#F8F3F3"
@@ -31,7 +31,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etSalesSerach"
+            android:id="@+id/etPurchasesStatus"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -40,13 +40,13 @@
             android:background="@drawable/shapeemail"
             android:inputType="textEmailAddress"
             android:textColor="#090229"
-            android:hint="Search Sales (PAID/UNPAID)"
+            android:hint="Search (PAID/UNPAID)"
             android:singleLine="true"
             android:textSize="20sp"
             />
 
         <ImageView
-            android:id="@+id/imgSearchSales"
+            android:id="@+id/imgSearchPurchases"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/ic_search_black_24dp"
@@ -74,7 +74,7 @@
 
         <!-- Product Image - JSON PARSE -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/salesRecycler"
+            android:id="@+id/purchasesRecycler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"/>

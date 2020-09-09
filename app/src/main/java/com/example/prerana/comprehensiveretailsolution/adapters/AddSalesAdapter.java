@@ -98,7 +98,7 @@ public class AddSalesAdapter extends RecyclerView.Adapter<AddSalesAdapter.MyView
                                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        Toast.makeText(context, "Sale has been deleted successfully..", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Customer"+""+addSalesModel.getCustomerName() + ""+" has been deleted successfully..", Toast.LENGTH_SHORT).show();
 
                                         Intent intent = new Intent(v.getContext(), SearchSalesActivity.class);
                                         v.getContext().startActivity(intent);
