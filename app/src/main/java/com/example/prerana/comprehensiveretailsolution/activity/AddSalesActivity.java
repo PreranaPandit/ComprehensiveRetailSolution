@@ -59,10 +59,10 @@ public class AddSalesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //to remove the title feature from window
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //to hide the action bar
-        getSupportActionBar().hide();
+          //to remove the title feature from window
+    requestWindowFeature(Window.FEATURE_NO_TITLE);
+    //to hide the action bar
+    getSupportActionBar().hide();
         //to make window fullscreen
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -85,27 +85,27 @@ public class AddSalesActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(this);
 
 
-        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
         btnsDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadCalendar();
-            }
+@Override
+public void onClick(View v) {
+        loadCalendar();
+        }
         });
         spinCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               // Toast.makeText(SignUpActivity.this, "The country you selected is : "+country[position], Toast.LENGTH_SHORT).show();
-                String countries = String.valueOf(salescategory[position]);
-                tvCategory.setText(countries);
+@Override
+public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // Toast.makeText(SignUpActivity.this, "The country you selected is : "+country[position], Toast.LENGTH_SHORT).show();
+        String countries = String.valueOf(salescategory[position]);
+        tvCategory.setText(countries);
 
-            }
+        }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+@Override
+public void onNothingSelected(AdapterView<?> parent) {
 
-            }
+        }
         });
 
 
@@ -113,43 +113,43 @@ public class AddSalesActivity extends AppCompatActivity {
         spinCategory.setAdapter(customAdapter);
 
 
-          btnAddSales.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  if(TextUtils.isEmpty(sCustomerName.getText())){
-                      sCustomerName.setError("Please enter customer name");
-                      sCustomerName.requestFocus();
-                      return;
-                  }
-                  else if (TextUtils.isEmpty(scustomerPhone.getText())) {
-                      scustomerPhone.setError("Please enter customer contact number ");
-                      scustomerPhone.requestFocus();
-                      return;
-                  }
-                  else if (scustomerPhone.length() != 10) {
-                      scustomerPhone.setError("Contact number must be of 10 digits");
-                      scustomerPhone.requestFocus();
-                      return;
-                  }
-                  else if (TextUtils.isEmpty(sBillNo.getText())) {
-                      sBillNo.setError("Please enter the bill number ");
-                      sBillNo.requestFocus();
-                      return;
-                  }
-                  else if (TextUtils.isEmpty(sAmount.getText())) {
-                      sAmount.setError("Please enter the sales amount ");
-                      sAmount.requestFocus();
-                      return;
-                  }
-                  else{
-                      addSales();
-                     // Toast.makeText(AddSalesActivity.this, "Sales added successfully!!", Toast.LENGTH_SHORT).show();
-                  }
-              }
-          });
-    }
+        btnAddSales.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+        if(TextUtils.isEmpty(sCustomerName.getText())){
+        sCustomerName.setError("Please enter customer name");
+        sCustomerName.requestFocus();
+        return;
+        }
+        else if (TextUtils.isEmpty(scustomerPhone.getText())) {
+        scustomerPhone.setError("Please enter customer contact number ");
+        scustomerPhone.requestFocus();
+        return;
+        }
+        else if (scustomerPhone.length() != 10) {
+        scustomerPhone.setError("Contact number must be of 10 digits");
+        scustomerPhone.requestFocus();
+        return;
+        }
+        else if (TextUtils.isEmpty(sBillNo.getText())) {
+        sBillNo.setError("Please enter the bill number ");
+        sBillNo.requestFocus();
+        return;
+        }
+        else if (TextUtils.isEmpty(sAmount.getText())) {
+        sAmount.setError("Please enter the sales amount ");
+        sAmount.requestFocus();
+        return;
+        }
+        else{
+        addSales();
+        // Toast.makeText(AddSalesActivity.this, "Sales added successfully!!", Toast.LENGTH_SHORT).show();
+        }
+        }
+        });
+        }
 
-    private void addSales() {
+private void addSales() {
 
         String customerName = sCustomerName.getText().toString();
         String customerPhone = scustomerPhone.getText().toString();
@@ -173,50 +173,50 @@ public class AddSalesActivity extends AppCompatActivity {
         Call<AddSales> addSalesCall = addSalesAPI.addingSales(Url.token, addSales);
 
         addSalesCall.enqueue(new Callback<AddSales>() {
-            @Override
-            public void onResponse(Call<AddSales> call, Response<AddSales> response) {
+@Override
+public void onResponse(Call<AddSales> call, Response<AddSales> response) {
 
-                if(!response.isSuccessful()){
-                    Toast.makeText(AddSalesActivity.this, "Sales cannot be added. Error Code :" + response.code(), Toast.LENGTH_LONG).show();
-                    return;
-                }
+        if(!response.isSuccessful()){
+        Toast.makeText(AddSalesActivity.this, "Sales cannot be added. Error Code :" + response.code(), Toast.LENGTH_LONG).show();
+        return;
+        }
 
-              // builder = new AlertDialog.Builder(getApplication());
-                builder.setMessage("Sales is added successfully.");
-                builder.setCancelable(true);
-                AlertDialog salesAlert = builder.create();
-                salesAlert.show();
-                Intent intent = new Intent(getApplication(), MainActivity.class);
-                startActivity(intent);
-            }
+        // builder = new AlertDialog.Builder(getApplication());
+        builder.setMessage("Sales is added successfully.");
+        builder.setCancelable(true);
+        AlertDialog salesAlert = builder.create();
+        salesAlert.show();
+        Intent intent = new Intent(getApplication(), MainActivity.class);
+        startActivity(intent);
+        }
 
-            @Override
-            public void onFailure(Call<AddSales> call, Throwable t) {
+@Override
+public void onFailure(Call<AddSales> call, Throwable t) {
 
-                Toast.makeText(AddSalesActivity.this, "Error"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(AddSalesActivity.this, "Error"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
-            }
+        }
         });
 
 
-    }
+        }
 
-    private void loadCalendar() {
-        final Calendar c = Calendar.getInstance();
+private void loadCalendar() {
+final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
-        final  int day = c.get(Calendar.DAY_OF_MONTH);
+final  int day = c.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String date = month+"/"+dayOfMonth+"/"+year;
-                month2 = month;
-                day2 = dayOfMonth;
-                year2 = year;
-                tvDate.setText(date);
-            }
+@Override
+public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String date = month+"/"+dayOfMonth+"/"+year;
+        month2 = month;
+        day2 = dayOfMonth;
+        year2 = year;
+        tvDate.setText(date);
+        }
         },year,month,day);
         datePickerDialog.show();
-    }
-}
+        }
+        }

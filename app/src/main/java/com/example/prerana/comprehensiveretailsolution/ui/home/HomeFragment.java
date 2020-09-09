@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.prerana.comprehensiveretailsolution.R;
 import com.example.prerana.comprehensiveretailsolution.activity.AddSalesActivity;
+import com.example.prerana.comprehensiveretailsolution.activity.PurchaseActivity;
 import com.example.prerana.comprehensiveretailsolution.adapters.SliderImageAdapter;
 import com.example.prerana.comprehensiveretailsolution.api.UsersAPI;
 import com.example.prerana.comprehensiveretailsolution.model.ImageModel;
@@ -74,7 +75,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         lvPurchaseSales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent purchaseIntent = new Intent(getContext(), Purc)
+                Intent purchaseIntent = new Intent(getContext(), PurchaseActivity.class);
+                startActivity(purchaseIntent);
             }
         });
 

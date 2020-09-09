@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_gravity="center"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:background="@drawable/purchaselogo"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                >
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Supplier Name:  "
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+
+                    />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/supplierName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="Supplier Name"
+                    android:textSize="16dp"
+                    android:padding="10dp"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:background="@drawable/regular_state"
+                    />
+
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Supplier Phone:  "
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp"
+
+                    />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/supplierPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="Supplier Phone number"
+                    android:textSize="16dp"
+                    android:padding="10dp"
+                    android:inputType="number"
+                    android:textColor="#200101"
+                    android:background="@drawable/regular_state"
+                    />
+
+
+
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bill Number:  "
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp"
+
+                    />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/supplierBillNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="Bill number"
+                    android:textSize="16dp"
+                    android:padding="10dp"
+                    android:textColor="#200101"
+                    android:background="@drawable/regular_state"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount:  "
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp"
+
+                    />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/supplierAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="Amount"
+                    android:textSize="16dp"
+                    android:padding="10dp"
+                    android:inputType="number"
+                    android:textColor="#200101"
+                    android:background="@drawable/regular_state"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status:  "
+                        android:textColor="#000000"
+                        android:textSize="18dp"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <RadioGroup
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center_horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/rdoSupplierGroup"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rdoPaid"
+                            android:layout_width="80sp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="PAID"
+                            android:padding="8dp"
+                            android:background="@drawable/buttonbackground"
+                            android:button="@android:color/transparent"
+                            android:textSize="18dp"
+                            android:checked="true"
+                            android:textColor="@drawable/radio_flat_text_selector"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rdoUnpaid"
+                            android:layout_width="80sp"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="UNPAID"
+                            android:background="@drawable/buttonbackground"
+                            android:button="@android:color/transparent"
+                            android:textSize="18dp"
+
+                            android:textColor="@drawable/radio_flat_text_selector"
+                            />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date:  "
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+                    <TextView
+                        android:id="@+id/supplierDate"
+                        android:textAlignment="center"
+                        android:layout_width="200dp"
+                        android:enabled="false"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:hint="MM/dd/YYYY"
+                        android:textSize="16dp"
+                        android:padding="10dp"
+                        android:inputType="number"
+                        android:textColor="#200101"
+                        android:background="@drawable/regular_state"
+
+                        />
+
+                    <Button
+                        android:id="@+id/supplyDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Select Date"
+                        android:padding="5dp"
+                        android:textColor="#070120"
+                        android:background="@drawable/regular_state"
+                        />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remarks:  "
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp"
+
+                    />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/supplierRemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Remarks "
+                    android:textSize="16dp"
+                    android:padding="10dp"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:minLines="5"
+                    android:gravity="top|left"
+                    android:maxLines="10"
+                    android:scrollbars="vertical"
+                    android:textColor="#200101"
+                    android:background="@drawable/regular_state"
+                    />
+
+                <Button
+                    android:id="@+id/btnAddingPurchase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ADD PURCHASE"
+                    android:shadowColor="@android:color/transparent"
+                    android:padding="15dp"
+                    android:textSize="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="29dp"
+                    android:background="@drawable/shapelogin"
+                    android:textColor="#fff"/>
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>
