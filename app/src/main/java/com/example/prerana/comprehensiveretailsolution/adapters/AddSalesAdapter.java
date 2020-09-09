@@ -31,6 +31,8 @@ public class AddSalesAdapter extends RecyclerView.Adapter<AddSalesAdapter.MyView
 
     Context context;
     List<AddSales> addSalesModels;
+    //List<Purchases> purchasesModel;
+
 
     public AddSalesAdapter(Context context, List<AddSales> addSalesModels) {
         this.context = context;
