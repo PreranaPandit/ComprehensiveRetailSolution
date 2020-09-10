@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#DBE5EC"
-    android:layout_margin="2dp"
+    android:layout_margin="3dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -30,36 +30,47 @@
             >
 
             <TextView
-                android:id="@+id/aCustomerName"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Customer Name"
-                android:drawableLeft="@drawable/ic_identity"
+                android:drawableLeft="@drawable/ic_user"
                 android:drawablePadding="10dp"
                 android:textColor="#000"
                 android:textSize="15dp"
                 />
 
             <TextView
-
+                android:id="@+id/tvPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="9840260049"
                 android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textSize="15dp"
+                android:textColor="#F7F2F2"
+                android:textSize="5dp"
                 android:layout_marginLeft="20dp"
                 />
 
 
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="10dp"
+            >
+
             <ImageView
-                android:id="@+id/dCall"
+                android:id="@+id/imgCalling"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+
                 android:src="@drawable/ic_phone_in_talk_black_24dp"
                 />
-
         </LinearLayout>
 
 
