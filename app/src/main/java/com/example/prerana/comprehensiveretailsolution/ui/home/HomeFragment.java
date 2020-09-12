@@ -1,6 +1,7 @@
 package com.example.prerana.comprehensiveretailsolution.ui.home;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -23,6 +24,14 @@ import com.example.prerana.comprehensiveretailsolution.api.UsersAPI;
 import com.example.prerana.comprehensiveretailsolution.model.ImageModel;
 import com.example.prerana.comprehensiveretailsolution.model.User;
 import com.example.prerana.comprehensiveretailsolution.url.Url;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.charts.RadarChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.RadarData;
+import com.github.mikephil.charting.data.RadarDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 
@@ -42,6 +51,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     CircleImageView imgBusinessLogo;
     TextView tvBusinessName, tvEmailAddress;
     LinearLayout lvAddSales, lvPurchaseSales;
+
+    RadarChart pieRadarChart;
+
+    PieChart pieChart;
 
 
     private static ViewPager mPager;
@@ -136,9 +149,98 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+       pieRadarChart = root.findViewById(R.id.idPieRadarChart);
+       pieChart = root.findViewById(R.id.idPieChart);
+
+       pieradarDisplay();
+
+       pieDisplay();
 
         return root;
     }
+
+    private void pieDisplay() {
+        ArrayList salesList = new ArrayList();
+
+        salesList.add(new Entry(3500000,0));
+        salesList.add(new Entry(5500000,1));
+
+
+        PieDataSet dataSet = new PieDataSet(salesList,"Complete Retails");
+
+        ArrayList names = new ArrayList();
+
+        names.add("Purchase");
+        names.add("Sales");
+
+
+
+        PieData data = new PieData(names,dataSet);
+        pieChart.setDescription("Purchase per Supplier");
+        pieChart.setHoleRadius(15f);
+        //pieChart.setTransparentCircleAlpha(0);
+        // pieChart.setCenterText("Purchase");
+        // pieChart.setCenterTextSize(12);
+        pieChart.setHoleColor(Color.rgb(105, 221, 250));
+
+        pieChart.setData(data);
+        dataSet.setColors(ColorTemplate.PASTEL_COLORS);
+        pieChart.animateXY(5000,5000);
+
+
+    }
+
+    private void pieradarDisplay() {
+
+        ArrayList salesList = new ArrayList();
+
+        salesList.add(new Entry(25000,0));
+        salesList.add(new Entry(55000,1));
+        salesList.add(new Entry(85000,2));
+        salesList.add(new Entry(10000,3));
+        salesList.add(new Entry(25000,4));
+        salesList.add(new Entry(55000,5));
+        salesList.add(new Entry(25000,6));
+        salesList.add(new Entry(95000,7));
+        salesList.add(new Entry(3900,8));
+        salesList.add(new Entry(30000,9));
+
+        RadarDataSet dataSet = new RadarDataSet(salesList,"Purchase Amount");
+
+        ArrayList names = new ArrayList();
+
+        names.add("Ram");
+        names.add("Shyam");
+        names.add("Hari");
+        names.add("Geeta");
+        names.add("Rita");
+        names.add("Neeta");
+        names.add("Sita");
+        names.add("John");
+        names.add("Albert");
+        names.add("Raju");
+        names.add("Shivam");
+
+
+
+        RadarData data = new RadarData(names,dataSet);
+        pieRadarChart.setDescription("Purchase per Supplier");
+       // pieRadarChart.setWebLineWidth(25f);
+        //pieRadarChart.setWebColorInner();
+       //  pieRadarChart.setHoleRadius(25f);
+//        pieRadarChart.setTransparentCircleAlpha(0);
+//       pieRadarChart.setCenterText("Purchase");
+//       pieRadarChart.setCenterTextSize(12);
+//        pieRadarChart.setHoleColor(Color.rgb(105, 221, 250));
+
+        pieRadarChart.setData(data);
+        dataSet.setColors(ColorTemplate.PASTEL_COLORS);
+
+        pieRadarChart.animateXY(5000,5000);
+
+
+    }
+
     private void loadCurrentUser() {
 
         UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
