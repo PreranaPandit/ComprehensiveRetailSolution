@@ -40,4 +40,18 @@
         android:name="com.example.prerana.comprehensiveretailsolution.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.example.prerana.comprehensiveretailsolution.ui.help.HelpFragment"
+        android:label="@string/menu_help"
+        tools:layout="@layout/fragment_help" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.prerana.comprehensiveretailsolution.ui.logout.LogoutFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_logout" />
+
+
 </navigation>

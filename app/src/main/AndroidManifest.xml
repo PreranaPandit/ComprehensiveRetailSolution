@@ -25,7 +25,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CompleteSalesReportActivity"></activity>
+        <activity android:name=".activity.SearchLocationActivity"></activity>
+        <activity android:name=".activity.CompleteSalesReportActivity" />
         <activity android:name=".activity.SearchPurchaseActivity" />
         <activity android:name=".activity.PurchaseActivity" />
         <activity android:name=".activity.SearchSalesActivity" />
