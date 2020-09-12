@@ -1,19 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_share"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sales Report of this week:"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#010814"
+            android:textSize="18dp"
+            android:textStyle="bold|normal"
+
+            />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        app:cardCornerRadius="4dp"
+        android:layout_margin="10dp"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="2dp"
+        >
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#E7EEFA"
+        android:layout_height="350dp">
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/idSalesPiechart"
+        >
+
+    </com.github.mikephil.charting.charts.PieChart>
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Overall Sales Report:"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#010814"
+            android:textSize="18dp"
+            android:textStyle="bold|normal"
+
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:cardCornerRadius="4dp"
+            android:layout_margin="10dp"
+            app:cardElevation="2dp"
+            app:cardMaxElevation="2dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#E7EEFA"
+                android:layout_height="350dp">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/idSalesBarchart"
+                    >
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnPurchaseReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shapesignup"
+            android:textColor="#fff"
+            android:text="PURCHASE REPORTS"
+            />
+
+
+    </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
