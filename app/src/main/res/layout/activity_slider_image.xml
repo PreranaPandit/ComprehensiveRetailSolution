@@ -21,7 +21,7 @@
             />
 
         <TextView
-            android:id="@+id/tvRetails"
+            android:id="@+id/tvRetailers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SKIP >"

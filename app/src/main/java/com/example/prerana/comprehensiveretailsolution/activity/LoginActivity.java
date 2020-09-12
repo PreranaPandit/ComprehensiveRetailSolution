@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                startActivity(intent);
                                // finish();
                                 tvTimer.setVisibility(View.VISIBLE);
-                                new CountDownTimer(58000,1000){
+                                new CountDownTimer(18000,1000){
 
                                     @Override
                                     public void onTick(long millisUntilFinished) {
@@ -162,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
                    @Override
                    public void run() {
                        try{
-                           Thread.sleep(1*60*1000);
+                           Thread.sleep(1*20*1000);
                        }catch(InterruptedException e){
                            e.printStackTrace();
                        }

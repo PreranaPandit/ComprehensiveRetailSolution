@@ -1,10 +1,12 @@
 package com.example.prerana.comprehensiveretailsolution.ui.tools;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prerana.comprehensiveretailsolution.R;
+import com.example.prerana.comprehensiveretailsolution.activity.MapsActivity;
 import com.example.prerana.comprehensiveretailsolution.adapters.PuAdapter;
 import com.example.prerana.comprehensiveretailsolution.adapters.SaAdapter;
 import com.example.prerana.comprehensiveretailsolution.api.AddSalesAPI;
@@ -34,6 +37,8 @@ public class ToolsFragment extends Fragment {
     private ToolsViewModel toolsViewModel;
     private SaAdapter saAdapter;
     private PuAdapter puAdapter;
+
+    Button btnSearchLocation;
 
     List<AddSales> addSalesList;
     List<Purchases> addPurchasesList;
@@ -56,7 +61,16 @@ public class ToolsFragment extends Fragment {
         
         recyclerView_contacts = root.findViewById(R.id.contactsRecycler);
         recyclerView_purchase = root.findViewById(R.id.contactsPRecycler);
-        
+
+        btnSearchLocation = root.findViewById(R.id.btnSearchLocation);
+
+        btnSearchLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
         contactsShow();
         contactsshowshow();
         return root;
