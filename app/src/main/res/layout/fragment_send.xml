@@ -1,20 +1,334 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_send"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:layout_marginRight="150dp"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="140dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/ic_user"
+                android:layout_height="140dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UPDATE PROFILE"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="#060D55"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapeemail"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Business Name"
+
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#130101"
+                    />
+
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editBusinessName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:drawableLeft="@drawable/ic_person_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="Business Name"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:textColorHint="#090000"
+                    android:textColorHighlight="#0C0000" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapeemail"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Owner Name"
+
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#130101"
+                    />
+
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:drawableLeft="@drawable/ic_person_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="Owner Name"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:textColorHint="#090000"
+                    android:textColorHighlight="#0C0000" />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapeemail"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender      "
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#130101"
+                    />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:drawableLeft="@drawable/ic_accessibility_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="Gender (Male/Female/Others)"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:textColorHint="#090000"
+                    android:textColorHighlight="#0C0000" />
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapeemail"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Country      "
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#130101"
+                    />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:drawableLeft="@drawable/ic_local_convenience_store_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="Country Name"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:textColorHint="#090000"
+                    android:textColorHighlight="#0C0000" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapeemail"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact No"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#130101"
+                    />
+
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editContactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:drawableLeft="@drawable/ic_call_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="Contact Number"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:textColorHint="#090000"
+                    android:textColorHighlight="#0C0000" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapeemail"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address      "
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#130101"
+                    />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:drawableLeft="@drawable/ic_add_location_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="City Name"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:textColorHint="#090000"
+                    android:textColorHighlight="#0C0000" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapeemail"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email ID      "
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#130101"
+                    />
+
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:drawableLeft="@drawable/ic_email_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="Email Address"
+                    android:inputType="text"
+                    android:textColor="#200101"
+                    android:textColorHint="#090000"
+                    android:textColorHighlight="#0C0000" />
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnUpdateprofile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Profile"
+                android:shadowColor="@android:color/transparent"
+                android:padding="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/shapesignup"
+                android:textColor="#fff"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editID"
+                android:textColor="#fff"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
