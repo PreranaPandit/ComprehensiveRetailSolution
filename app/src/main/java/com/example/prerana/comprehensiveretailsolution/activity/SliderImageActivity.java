@@ -56,14 +56,14 @@ public class SliderImageActivity extends AppCompatActivity {
         imageModelArrayList = new ArrayList<>();
         imageModelArrayList = populateList();
 
-        tvRetails = findViewById(R.id.tvRetails);
+        tvRetails = findViewById(R.id.tvRetailers);
 
         init();
 
         tvRetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), OTPAuthActivity.class);
+                Intent intent = new Intent(getApplication(), OTPAuthActivity.class);
                 startActivity(intent);
             }
         });
