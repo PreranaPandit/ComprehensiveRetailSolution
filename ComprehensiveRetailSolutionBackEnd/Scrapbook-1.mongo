@@ -1,0 +1,2 @@
+db.tasks.insert({name:'Buy apples'})
+db.tasks.find()
