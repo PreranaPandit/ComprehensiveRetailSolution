@@ -7,7 +7,7 @@ public class Url {
     //home ko ip
    // public static final String base_url = "http://172.26.1.210:3000/";
 
-    public static final String base_url = "http://192.168.0.107:3000/";
+    public static final String base_url = "http://192.168.0.102:3000/";
 
 //192.168.0.105
      //emulator ko lagi ip
